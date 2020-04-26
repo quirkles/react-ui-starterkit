@@ -2,8 +2,10 @@ module.exports = {
   env: {
     browser: true,
     es6: true,
+    'jest/globals': true
   },
   extends: [
+    'plugin:jest/recommended',
     'plugin:react/recommended',
     'airbnb',
   ],
@@ -19,8 +21,17 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: [
+    'jest',
     'react',
   ],
   rules: {
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": true,
+        "optionalDependencies": false,
+        "peerDependencies": false
+      }
+    ]
   },
 };

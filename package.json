@@ -8,7 +8,7 @@
     "dev:server": "node devServer.js",
     "build": "webpack --config webpack.config.prod.js",
     "lint": "eslint . --ext .js,.jsx",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "quirkles",
   "license": "ISC",
@@ -16,17 +16,23 @@
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.5",
     "@babel/preset-react": "^7.9.4",
+    "babel-jest": "^25.4.0",
     "babel-loader": "^8.1.0",
     "css-loader": "^3.5.3",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jest": "^23.8.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^2.5.1",
     "express": "^4.17.1",
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.2.0",
+    "husky": "^4.2.5",
+    "jest": "^25.4.0",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
     "style-loader": "^1.2.0",
@@ -39,5 +45,13 @@
     "ramda": "^0.27.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test && npm test"
+    }
+  },
+  "jest": {
+    "setupFilesAfterEnv": ["<rootDir>src/testSetup.js"]
   }
 }
