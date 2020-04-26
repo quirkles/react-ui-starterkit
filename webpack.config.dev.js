@@ -4,7 +4,7 @@ const webpackBaseConfig = require('./webpack.config.base');
 
 
 const webpackProdOverrides = {
-  mode: 'production',
+  mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
     contentBase: './dist',

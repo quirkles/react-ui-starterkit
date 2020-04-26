@@ -3,7 +3,10 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+    client: ['./src/index.jsx'],
+    vendor: ['react', 'react-dom'],
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: 'src/index.html',
@@ -39,7 +42,12 @@ module.exports = {
     ],
   },
   output: {
-    filename: 'bundle.js',
+    filename: '[name].[chunkhash].bundle.js',
     path: path.resolve(__dirname, 'dist'),
+    chunkFilename: '[name].[chunkhash].bundle.js',
+    publicPath: '/',
+  },
+  resolve: {
+    extensions: ['.js', '.jsx'],
   },
 };

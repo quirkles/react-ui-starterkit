@@ -5,7 +5,7 @@ const webpackBaseConfig = require('./webpack.config.base');
 
 
 const webpackDevOverrides = {
-  mode: 'development',
+  mode: 'production',
 };
 
 module.exports = R.mergeDeepRight(
