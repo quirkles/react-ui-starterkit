@@ -1,6 +1,7 @@
-const R = require('ramda')
+/* eslint-disable import/no-unresolved */
+const R = require('ramda');
 
-const webpackBaseConfig = require('./webpack.config.base')
+const webpackBaseConfig = require('./webpack.config.base');
 
 
 const webpackDevOverrides = {
@@ -10,4 +11,4 @@ const webpackDevOverrides = {
 module.exports = R.mergeDeepRight(
   webpackBaseConfig,
   webpackDevOverrides,
-)
+);
