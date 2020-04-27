@@ -42,9 +42,9 @@ module.exports = {
     ],
   },
   output: {
-    filename: '[name].[chunkhash].bundle.js',
+    filename: '[name].[hash].bundle.js',
     path: path.resolve(__dirname, 'dist'),
-    chunkFilename: '[name].[chunkhash].bundle.js',
+    chunkFilename: '[name].[hash].bundle.js',
     publicPath: '/',
   },
   resolve: {

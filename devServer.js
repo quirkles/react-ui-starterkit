@@ -1,23 +1,14 @@
-/* eslint-disable import/no-extraneous-dependencies */
-const express = require('express');
+const WebpackDevServer = require('webpack-dev-server');
 const webpack = require('webpack');
-const webpackDevMiddleware = require('webpack-dev-middleware');
 
-const app = express();
 const config = require('./webpack.config.dev.js');
+const options = config.devServer;
 
+WebpackDevServer.addDevServerEntrypoints(config, options);
 const compiler = webpack(config);
+const devServer = new WebpackDevServer(compiler, options);
 
-const PORT = process.env.PORT || 5000;
-
-// Tell express to use the webpack-dev-middleware and use the webpack.config.js
-// configuration file as a base.
-app.use(webpackDevMiddleware(compiler, {
-  publicPath: config.output.publicPath,
-}));
-
-// Serve the files on port 3000.
-app.listen(PORT, () => {
-  // eslint-disable-next-line no-console
-  console.log(`Dev server up on http://localhost:${PORT}`);
+const port = process.env.PORT || 5000;
+devServer.listen(port, 'localhost', () => {
+  console.log(`dev devServer listening on port ${port}`);
 });

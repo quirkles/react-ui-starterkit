@@ -32,6 +32,12 @@ module.exports = {
         "optionalDependencies": false,
         "peerDependencies": false
       }
-    ]
+    ],
+    "react/display-name": [
+      "error",
+      {
+        "ignoreTranspilerName": false
+      }
+    ],
   },
 };

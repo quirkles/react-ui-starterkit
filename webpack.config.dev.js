@@ -8,6 +8,9 @@ const webpackProdOverrides = {
   devtool: 'inline-source-map',
   devServer: {
     contentBase: './dist',
+    hot: true,
+    host: 'localhost',
+    historyApiFallback: true,
   },
   output: {
     publicPath: '/',
